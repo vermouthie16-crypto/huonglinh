@@ -185,28 +185,39 @@ ul {
     color: var(--text-muted);
 }
 /* Khung ảnh Avatar bo tròn mềm */
-.hero-avatar {
-    flex-shrink: 0;
+/* --- SỬA LẠI VÀ BỔ SUNG CÁC LỚP CHUYÊN DỤNG CHO HERO --- */
+.hero {
+    padding-top: 140px;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; /* Đẩy chữ và ảnh về 2 phía bên ngoài, không đè nhau */
+    gap: 40px; /* Tạo khoảng cách an toàn cố định giữa chữ và ảnh */
+    flex-wrap: wrap; /* Tự động xuống dòng mượt mà khi thu nhỏ màn hình */
+    flex-direction: row-reverse; /* Đảo vị trí ảnh bên phải, chữ bên trái */
 }
+
+.hero-text {
+    flex: 1 1 450px; /* Cho phép co giãn linh hoạt nhưng giữ gốc 450px */
+    max-width: 600px; /* Không cho chữ tràn quá rộng lấn sang chỗ của ảnh */
+}
+
 .avatar-frame {
     flex-shrink: 0 !important;
     width: 280px !important;
     height: 280px !important;
     max-width: 280px !important;
     max-height: 280px !important;
-    
-    /* BỘ BA THUỘC TÍNH BẮT BUỘC ĐỂ ÉP ẢNH PHẢI BO THEO KHUNG */
     overflow: hidden !important;
     border-radius: 32px !important;
-    transform: translateZ(0) !important; /* Mẹo ép trình duyệt Safari/Chrome bật chế độ khử răng cưa và bo góc phần tử con */
-    
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    border: 6px solid #ffffff;
-    position: relative !important;
-    transition: transform 0.4s ease;
+    transform: translateZ(0) !important;
+    position: relative; /* Giúp chiếc nơ định vị chuẩn theo khung này */
 }
-.avatar-frame:hover {
-    transform: scale(1.02);
+
+.avatar-frame .sticker {
+    position: absolute !important; 
+    bottom: 15px !important; /* Ghim nơ cách đáy ảnh */
+    left: 15px !important; /* Ghim nơ cách lề trái ảnh */
+    z-index: 10 !important; /* Ép nơ nổi lên trên cùng, không bị ảnh đè */
 }
 
 /* 2. BÀI TẬP DỰ ÁN */
